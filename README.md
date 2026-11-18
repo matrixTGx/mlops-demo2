@@ -12,3 +12,18 @@ Component Breakdown:
    * Spins up the FastAPI server locally to execute automated smoke and integration tests (curl health and prediction checks).
    * Verifies the final model artifact for deployment readiness.
      
+:: 1. Create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate.bat
+
+:: 2. Install dependencies
+pip install -r requirements.txt
+
+:: 3. (Optional) Run drift monitoring
+python drift_monitor.py
+
+:: 4. (Optional) Train/retrain the model
+python retrain.py
+
+:: 5. Start the FastAPI server
+uvicorn app:app --reload --host 127.0.0.1 --port 8000
